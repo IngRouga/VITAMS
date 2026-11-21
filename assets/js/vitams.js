@@ -89,6 +89,27 @@
   document.querySelectorAll('#nav-links a').forEach(function (a) { a.addEventListener('click', closeMenu); });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeMenu(); });
 
+
+  /* ---------------- Clip vidéo (Moments) : lecture auto quand visible ---------------- */
+  var clipV = document.getElementById('clip-video'), clipBtn = document.getElementById('clip-sound');
+  if (clipV) {
+    if (reduce) { clipV.controls = true; clipBtn.hidden = true; }
+    else if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (es) {
+        es.forEach(function (e) {
+          if (e.isIntersecting) { clipV.preload = 'auto'; var pr = clipV.play(); if (pr && pr.catch) pr.catch(function () { clipV.controls = true; }); }
+          else clipV.pause();
+        });
+      }, { threshold: 0.35 }).observe(clipV);
+    }
+    clipBtn.addEventListener('click', function () {
+      clipV.muted = !clipV.muted;
+      if (!clipV.muted) clipV.play();
+      clipBtn.setAttribute('aria-pressed', clipV.muted ? 'false' : 'true');
+      clipBtn.textContent = clipV.muted ? 'Activer le son' : 'Couper le son';
+    });
+  }
+
   var yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
@@ -109,6 +130,7 @@
     if (reduce || !window.gsap || !window.ScrollTrigger) { noAnim(); return; }
     var gsap = window.gsap, ST = window.ScrollTrigger;
     gsap.registerPlugin(ST);
+    root.classList.add('anim');
     ST.config({ ignoreMobileResize: true });
 
     /* Smooth scroll (desktop only, like rougatech.com/academy) */
@@ -203,6 +225,48 @@
           }
         }
         ctx.globalAlpha = 1;
+      });
+    }
+
+
+    /* ---------- vidéo pilotée par le défilement (images 10 i/s) ---------- */
+    var cvs = document.getElementById('scrub-canvas');
+    if (cvs) {
+      var N = 141, frames = new Array(N), loaded = false, cur = 0;
+      var cx = cvs.getContext('2d');
+      var src = function (i) { return 'assets/seq/v1/' + String(i + 1).padStart(3, '0') + '.webp'; };
+      function fit() {
+        var r = cvs.getBoundingClientRect(), d = Math.min(window.devicePixelRatio || 1, 2);
+        cvs.width = Math.round(r.width * d); cvs.height = Math.round(r.height * d); draw(cur);
+      }
+      function draw(i) {
+        var k = i; while (k > 0 && !(frames[k] && frames[k].complete && frames[k].naturalWidth)) k--;
+        var im = frames[k]; if (!im || !im.naturalWidth) return;
+        var W = cvs.width, H = cvs.height, s = Math.max(W / im.naturalWidth, H / im.naturalHeight);
+        var w = im.naturalWidth * s, h = im.naturalHeight * s;
+        cx.drawImage(im, (W - w) / 2, (H - h) / 2, w, h);
+      }
+      function load() {
+        if (loaded) return; loaded = true;
+        // coarse pass first (every 6th frame), then the rest, so scrubbing works early on slow networks
+        var order = [];
+        for (var i = 0; i < N; i += 6) order.push(i);
+        for (var j = 0; j < N; j++) if (j % 6) order.push(j);
+        order.forEach(function (i) { var im = new Image(); im.decoding = 'async'; im.onload = function () { if (Math.abs(i - cur) < 7) draw(cur); }; im.src = src(i); frames[i] = im; });
+      }
+      var first = new Image(); first.onload = function () { frames[0] = frames[0] || first; fit(); }; first.src = src(0); frames[0] = first;
+      window.addEventListener('resize', fit);
+      ST.create({ trigger: '#video', start: 'top 250%', once: true, onEnter: load });
+      var beats = document.querySelectorAll('#beats li'), sbar = document.getElementById('scrub-bar');
+      ST.create({
+        trigger: '#video', pin: '#scrub-pin', start: 'top top', end: '+=220%', scrub: true, anticipatePin: 1,
+        onUpdate: function (s) {
+          var i = Math.min(N - 1, Math.round(s.progress * (N - 1)));
+          if (i !== cur) { cur = i; draw(i); }
+          var b = Math.min(beats.length - 1, Math.floor(s.progress * beats.length));
+          beats.forEach(function (li, k) { li.classList.toggle('is-on', k === b); });
+          sbar.style.transform = 'scaleX(' + s.progress + ')';
+        }
       });
     }
 

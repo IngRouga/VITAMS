@@ -324,6 +324,39 @@ fieldset legend{width:100%;margin-bottom:10px}
 .wa-float.is-off{transform:translateY(140%);opacity:0;pointer-events:none}
 .wa-float .ico-wa{width:22px;height:22px}
 
+/* ---------- vidéo au défilement ---------- */
+.scrub{background:var(--white);border-top:1px solid var(--line);overflow:hidden}
+.scrub-pin{min-height:100vh;min-height:100svh;display:flex;align-items:center;padding-block:120px 48px}
+.scrub-grid{display:grid;grid-template-columns:1fr auto;gap:80px;align-items:center}
+.scrub-copy{min-width:0}
+.beats{list-style:none;margin:0 0 36px;padding:0;display:grid;gap:28px}
+.beats h2{font-family:var(--f-serif);font-weight:400;font-size:clamp(3.4rem,7.4vw,6.6rem);line-height:.95;letter-spacing:-.02em;margin:0 0 12px;color:var(--ink)}
+.beats h2 em{font-style:italic;color:var(--blue)}
+.beats p{margin:0;color:var(--muted);font-size:1.08rem;max-width:36ch}
+.anim .beats{grid-template-areas:"b";gap:0}
+.anim .beats li{grid-area:b;opacity:0;transform:translateY(28px);transition:opacity .6s,transform .8s cubic-bezier(.2,.8,.2,1)}
+.anim .beats li.is-on{opacity:1;transform:none}
+.scrub-frame{position:relative;height:min(76vh,720px);height:min(76svh,720px);aspect-ratio:420/746;max-width:100%;border-radius:28px;overflow:hidden;background:var(--mist);box-shadow:0 60px 100px -60px rgba(11,51,184,.55)}
+.scrub-frame canvas,.scrub-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.scrub-frame canvas{display:none}
+.anim .scrub-frame canvas{display:block}
+.anim .scrub-video{display:none}
+.scrub-progress{position:absolute;left:16px;right:16px;bottom:16px;height:2px;border-radius:2px;background:rgba(255,255,255,.4);display:none}
+.anim .scrub-progress{display:block}
+.scrub-progress span{display:block;height:100%;border-radius:2px;background:#fff;transform:scaleX(0);transform-origin:left}
+
+/* ---------- moments : vidéo en boucle ---------- */
+.moments-head{display:grid;grid-template-columns:1fr auto;gap:64px;align-items:end;margin-bottom:64px}
+.moments-head .sec-head{margin:0}
+.clip{position:relative;margin:0;width:min(300px,70vw);aspect-ratio:576/1024;border-radius:24px;overflow:hidden;background:var(--mist);box-shadow:0 50px 90px -55px rgba(11,51,184,.55)}
+.clip video{width:100%;height:100%;object-fit:cover;display:block}
+.clip-sound{position:absolute;left:12px;bottom:12px;padding:8px 14px;border-radius:999px;border:0;background:rgba(255,255,255,.92);color:var(--blue);font-weight:600;font-size:.8rem;cursor:pointer}
+.clip-sound[aria-pressed="true"]{background:var(--blue);color:#fff}
+
+/* ---------- composition ---------- */
+.mineral-grid div:nth-child(3n+1){border-left:0;padding-left:0}
+.mineral-grid div:nth-child(n+4){border-top:1px solid var(--line)}
+
 /* ---------- reveal ---------- */
 .js [data-rise]{opacity:0;transform:translateY(40px)}
 .no-anim [data-rise]{opacity:1!important;transform:none!important}
@@ -374,6 +407,17 @@ fieldset legend{width:100%;margin-bottom:10px}
   .find-map,.find-map iframe{min-height:320px}
   .final-inner{grid-template-columns:1fr}
   .final-bottle{display:none}
+  .scrub-pin{padding-block:96px 28px}
+  .scrub-grid{grid-template-columns:1fr;gap:22px;justify-items:center}
+  .scrub-copy{justify-self:stretch}
+  .scrub-copy .eyebrow{margin-bottom:12px}
+  .scrub-copy .btn{display:none}
+  .beats{margin:0}
+  .beats h2{font-size:clamp(2.6rem,12vw,4rem);margin-bottom:6px}
+  .beats p{font-size:.95rem}
+  .scrub-frame{height:min(54vh,520px);height:min(54svh,520px)}
+  .moments-head{grid-template-columns:1fr;gap:36px}
+  .clip{justify-self:center}
 }
 @media (max-width:640px){
   body{font-size:16px}
@@ -384,7 +428,9 @@ fieldset legend{width:100%;margin-bottom:10px}
   .format-body>.format-vol{font-size:4.2rem}
   .form-row{grid-template-columns:1fr;gap:0}
   .resell-form{padding:30px 22px}
-  .mineral-grid{grid-template-columns:1fr 1fr}
+  .mineral-grid div{padding:14px 12px}
+  .mineral-grid dd{font-size:1.8rem}
+  .mineral-grid dt{font-size:.68rem;letter-spacing:.04em}
   .footer-grid{grid-template-columns:1fr}
   .wa-float span{display:none}
   .wa-float{padding:16px}

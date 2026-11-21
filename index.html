@@ -20,10 +20,10 @@
 <link rel="stylesheet" href="assets/css/vitams.css">
 <script>document.documentElement.classList.add('js');</script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Organization","name":"Vitam's","alternateName":"Eau minérale Vitams","url":"https://vitams.pages.dev/","logo":"https://vitams.pages.dev/assets/img/logo-bleu.png","slogan":"Vitam's, le plein de vie !","description":"Eau minérale naturelle extraite des profondeurs du plateau de Goguiezé, région de Tillabéry (Niger).","telephone":["+22788888010","+22782888010"],"address":{"@type":"PostalAddress","streetAddress":"Nouveau marché, rue Mouddour Zakara","addressLocality":"Niamey","postalCode":"11282","addressCountry":"NE"},"sameAs":["https://www.facebook.com/share/1EW21CVp3r/"]}
+{"@context":"https://schema.org","@type":"Organization","name":"Vitam's","alternateName":"Eau minérale Vitams","url":"https://vitams.pages.dev/","logo":"https://vitams.pages.dev/assets/img/logo-bleu.png","slogan":"Vitam's, le plein de vie !","description":"Eau minérale naturelle extraite des profondeurs du plateau de Goguiezé, région de Tillabéry (Niger).","telephone":["+22788888010","+22782888010","+22782842316","+22782842317"],"address":{"@type":"PostalAddress","streetAddress":"Nouveau marché, rue Mouddour Zakara","addressLocality":"Niamey","postalCode":"11282","addressCountry":"NE"},"sameAs":["https://www.facebook.com/share/1EW21CVp3r/"]}
 </script>
 <script type="application/ld+json">
-{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Comment commander de l'eau Vitam's ?", "acceptedAnswer": {"@type": "Answer", "text": "Le plus simple : écrivez-nous sur WhatsApp au +227 82 88 80 10 en indiquant le format, la quantité et votre quartier. Vous pouvez aussi appeler le +227 88 88 80 10."}}, {"@type": "Question", "name": "Quels formats proposez-vous ?", "acceptedAnswer": {"@type": "Answer", "text": "Vitam's est disponible en bouteilles de 0,5 L et de 1,5 L."}}, {"@type": "Question", "name": "D'où vient l'eau Vitam's ?", "acceptedAnswer": {"@type": "Answer", "text": "Vitam's est une eau minérale naturelle extraite des profondeurs du plateau de Goguiezé, dans la région de Tillabéry."}}, {"@type": "Question", "name": "Livrez-vous ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui, nos tricycles Vitam's livrent les commandes. Indiquez votre quartier dans votre message WhatsApp pour connaître les conditions de livraison."}}, {"@type": "Question", "name": "Quels sont vos prix ?", "acceptedAnswer": {"@type": "Answer", "text": "Écrivez-nous sur WhatsApp : nous vous donnons les prix du moment selon le format et la quantité."}}, {"@type": "Question", "name": "Comment devenir revendeur ou distributeur ?", "acceptedAnswer": {"@type": "Answer", "text": "Remplissez la demande revendeur : elle part sur WhatsApp, et nous vous présentons nos conditions."}}, {"@type": "Question", "name": "Où vérifier la date de fabrication ?", "acceptedAnswer": {"@type": "Answer", "text": "Chaque bouteille porte sa date de fabrication (FAB) et sa date d'expiration (EXP), imprimées sur la bouteille."}}]}
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Comment commander de l'eau Vitam's ?", "acceptedAnswer": {"@type": "Answer", "text": "Le plus simple : écrivez-nous sur WhatsApp au +227 82 88 80 10 en indiquant le format, la quantité et votre quartier. Vous pouvez aussi appeler le +227 88 88 80 10."}}, {"@type": "Question", "name": "Quels formats proposez-vous ?", "acceptedAnswer": {"@type": "Answer", "text": "Vitam's est disponible en bouteilles de 0,5 L et de 1,5 L."}}, {"@type": "Question", "name": "D'où vient l'eau Vitam's ?", "acceptedAnswer": {"@type": "Answer", "text": "Vitam's est une eau minérale naturelle extraite des profondeurs du plateau de Goguiezé, dans la région de Tillabéry."}}, {"@type": "Question", "name": "Quelle est la composition de l'eau Vitam's ?", "acceptedAnswer": {"@type": "Answer", "text": "En mg/L : calcium 3,0 ; magnésium 3,8 ; potassium 0,4 ; fer 0,1 ; nitrates 0,8 ; nitrites 0,1 ; sulfates 0 ; fluorures 0. pH : 6,63."}}, {"@type": "Question", "name": "Livrez-vous ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui, nos tricycles Vitam's livrent les commandes. Indiquez votre quartier dans votre message WhatsApp pour connaître les conditions de livraison."}}, {"@type": "Question", "name": "Quels sont vos prix ?", "acceptedAnswer": {"@type": "Answer", "text": "Écrivez-nous sur WhatsApp : nous vous donnons les prix du moment selon le format et la quantité."}}, {"@type": "Question", "name": "Comment devenir revendeur ou distributeur ?", "acceptedAnswer": {"@type": "Answer", "text": "Remplissez la demande revendeur : elle part sur WhatsApp, et nous vous présentons nos conditions."}}, {"@type": "Question", "name": "Où vérifier la date de fabrication ?", "acceptedAnswer": {"@type": "Answer", "text": "Chaque bouteille porte sa date de fabrication (FAB) et sa date d'expiration (EXP), imprimées sur la bouteille."}}]}
 </script>
 </head>
 <body>
@@ -37,6 +37,7 @@
     <nav class="nav-links" id="nav-links" aria-label="Navigation principale">
       <a href="#atouts">Pourquoi Vitam's</a>
       <a href="#formats">Formats</a>
+      <a href="#video">Vidéo</a>
       <a href="#source">La source</a>
       <a href="#trouver">Nous trouver</a>
       <a href="#revendeurs">Revendeurs</a>
@@ -136,21 +137,47 @@
       </article>
     </div>
 
-    <!-- À COMPLÉTER : composition minérale (valeurs en mg/L lues sur l'étiquette).
-         Remplacez les "—" par les vraies valeurs, puis supprimez l'attribut hidden. -->
-    <div class="mineral" id="mineral" hidden>
+    <!-- Composition minérale : valeurs communiquées par Vitam's (affiche officielle). -->
+    <div class="mineral" id="mineral" data-rise>
       <div class="mineral-head">
         <h3>Composition minérale</h3>
-        <p>Valeurs indiquées sur l'étiquette, en mg/L.</p>
+        <p>En mg/L. Extraite à Goguiézé, région de Tillabéri.</p>
       </div>
       <dl class="mineral-grid">
-        <div><dt>Calcium</dt><dd data-count="0">—</dd></div>
-        <div><dt>Magnésium</dt><dd data-count="0">—</dd></div>
-        <div><dt>Sodium</dt><dd data-count="0">—</dd></div>
-        <div><dt>Potassium</dt><dd data-count="0">—</dd></div>
-        <div><dt>Bicarbonates</dt><dd data-count="0">—</dd></div>
-        <div><dt>pH</dt><dd data-count="0">—</dd></div>
+        <div><dt>Calcium</dt><dd data-count="3.0" data-decimals="1">3,0</dd></div>
+        <div><dt>Magnésium</dt><dd data-count="3.8" data-decimals="1">3,8</dd></div>
+        <div><dt>Potassium</dt><dd data-count="0.4" data-decimals="1">0,4</dd></div>
+        <div><dt>Fer</dt><dd data-count="0.1" data-decimals="1">0,1</dd></div>
+        <div><dt>Nitrates</dt><dd data-count="0.8" data-decimals="1">0,8</dd></div>
+        <div><dt>Nitrites</dt><dd data-count="0.1" data-decimals="1">0,1</dd></div>
+        <div><dt>Sulfates</dt><dd>0</dd></div>
+        <div><dt>Fluorures</dt><dd>0</dd></div>
+        <div><dt>pH</dt><dd data-count="6.63" data-decimals="2">6,63</dd></div>
       </dl>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VIDÉO AU DÉFILEMENT ============ -->
+<section class="scrub" id="video" aria-label="Vitam's en vidéo">
+  <div class="scrub-pin" id="scrub-pin">
+    <div class="wrap scrub-grid">
+      <div class="scrub-copy">
+        <p class="eyebrow">Vitam's en vrai</p>
+        <ol class="beats" id="beats">
+          <li class="is-on"><h2>Respirez.</h2><p>Une bouteille fraîche, toujours à portée de main.</p></li>
+          <li><h2>Buvez.</h2><p>Une eau minérale naturelle, versée comme elle sort de la bouteille.</p></li>
+          <li><h2><em>Vivez.</em></h2><p>Vitam's, le plein de vie, à la maison comme au travail.</p></li>
+        </ol>
+        <a class="btn btn-wa" href="#" data-wa="Bonjour Vitam's, je souhaite commander de l'eau Vitam's.">
+          <svg class="ico-wa" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-wa"/></svg>Commander sur WhatsApp
+        </a>
+      </div>
+      <div class="scrub-frame">
+        <canvas id="scrub-canvas" aria-hidden="true"></canvas>
+        <video class="scrub-video" src="assets/video/vitams-verser.mp4" poster="assets/video/vitams-verser-poster.webp" muted loop playsinline controls preload="none" aria-label="Vidéo : de l'eau Vitam's versée dans un gobelet"></video>
+        <div class="scrub-progress" aria-hidden="true"><span id="scrub-bar"></span></div>
+      </div>
     </div>
   </div>
 </section>
@@ -275,9 +302,16 @@
 
 <!-- ============ GALERIE ============ -->
 <section class="sec sec-light moments" id="moments" aria-label="Moments Vitam's">
-  <div class="wrap sec-head">
-    <p class="eyebrow">Moments Vitam's</p>
-    <h2 class="h2" data-split>Respirez. Buvez. Vivez.</h2>
+  <div class="wrap moments-head">
+    <div class="sec-head">
+      <p class="eyebrow">Moments Vitam's</p>
+      <h2 class="h2" data-split>Le plein <em>de vie</em>, partout</h2>
+      <p class="lead">À table, au soleil, devant le match ou en route : Vitam's vous accompagne.</p>
+    </div>
+    <figure class="clip" data-rise>
+      <video id="clip-video" src="assets/video/vitams-plein-de-vie.mp4" poster="assets/video/vitams-plein-de-vie-poster.webp" muted loop playsinline preload="none" aria-label="Vidéo Vitam's : de l'eau versée dans une main, au milieu des plantes"></video>
+      <button class="clip-sound" id="clip-sound" type="button" aria-pressed="false">Activer le son</button>
+    </figure>
   </div>
   <div class="reel" id="reel">
     <div class="reel-row" data-dir="-1">
@@ -406,6 +440,10 @@
         <p>Vitam's est une eau minérale naturelle extraite des profondeurs du plateau de Goguiezé, dans la région de Tillabéry.</p>
       </details>
       <details data-rise>
+        <summary>Quelle est la composition de l'eau Vitam's ?</summary>
+        <p>En mg/L : calcium 3,0 ; magnésium 3,8 ; potassium 0,4 ; fer 0,1 ; nitrates 0,8 ; nitrites 0,1 ; sulfates 0 ; fluorures 0. pH : 6,63.</p>
+      </details>
+      <details data-rise>
         <summary>Livrez-vous ?</summary>
         <p>Oui, nos tricycles Vitam's livrent les commandes. Indiquez votre quartier dans votre message WhatsApp pour connaître les conditions de livraison.</p>
       </details>
@@ -456,6 +494,8 @@
         <li><a href="#" data-wa="Bonjour Vitam's, ">WhatsApp : +227 82 88 80 10</a></li>
         <li><a href="tel:+22788888010">Tél. : +227 88 88 80 10</a></li>
         <li><a href="tel:+22782888010">Tél. : +227 82 88 80 10</a></li>
+        <li><a href="tel:+22782842316">Tél. : +227 82 84 23 16</a></li>
+        <li><a href="tel:+22782842317">Tél. : +227 82 84 23 17</a></li>
       </ul>
     </div>
     <div>
