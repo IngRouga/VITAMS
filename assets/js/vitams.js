@@ -169,11 +169,11 @@
     var cv = document.getElementById('bubbles');
     if (cv && cv.getContext) {
       var ctx = cv.getContext('2d'), dpr = Math.min(window.devicePixelRatio || 1, 2), W = 0, H = 0, parts = [], running = true;
-      var count = isDesktop ? 70 : 34;
+      var count = isDesktop ? 42 : 22;
       function size() { W = cv.clientWidth; H = cv.clientHeight; cv.width = W * dpr; cv.height = H * dpr; ctx.setTransform(dpr, 0, 0, dpr, 0, 0); }
       function make(randomY) {
         var drop = Math.random() < 0.22;
-        return { x: Math.random() * W, y: randomY ? Math.random() * H : H + 20, r: drop ? 3 + Math.random() * 4 : 1.5 + Math.random() * 7, v: 0.25 + Math.random() * 0.9, w: Math.random() * Math.PI * 2, drop: drop, a: 0.25 + Math.random() * 0.55 };
+        return { x: Math.random() * W, y: randomY ? Math.random() * H : H + 20, r: drop ? 3 + Math.random() * 4 : 1.5 + Math.random() * 7, v: 0.25 + Math.random() * 0.9, w: Math.random() * Math.PI * 2, drop: drop, a: 0.3 + Math.random() * 0.5 };
       }
       size(); for (var i = 0; i < count; i++) parts.push(make(true));
       window.addEventListener('resize', size);
@@ -189,16 +189,16 @@
           if (p.y < -20) parts[i] = p = make(false);
           ctx.globalAlpha = p.a;
           if (p.drop) {
-            ctx.fillStyle = 'rgba(220,240,255,.9)';
+            ctx.fillStyle = 'rgba(11,51,184,.28)';
             ctx.beginPath();
             ctx.moveTo(p.x, p.y - p.r * 1.8);
             ctx.bezierCurveTo(p.x + p.r, p.y - p.r * 0.4, p.x + p.r, p.y + p.r, p.x, p.y + p.r);
             ctx.bezierCurveTo(p.x - p.r, p.y + p.r, p.x - p.r, p.y - p.r * 0.4, p.x, p.y - p.r * 1.8);
             ctx.fill();
           } else {
-            ctx.strokeStyle = 'rgba(200,232,255,.8)'; ctx.lineWidth = 1;
+            ctx.strokeStyle = 'rgba(11,51,184,.45)'; ctx.lineWidth = 1;
             ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2); ctx.stroke();
-            ctx.fillStyle = 'rgba(255,255,255,.55)';
+            ctx.fillStyle = 'rgba(11,51,184,.18)';
             ctx.beginPath(); ctx.arc(p.x - p.r * 0.35, p.y - p.r * 0.35, p.r * 0.28, 0, Math.PI * 2); ctx.fill();
           }
         }
